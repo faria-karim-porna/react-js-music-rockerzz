@@ -1,0 +1,221 @@
+body {
+  font-family: "Inconsolata", monospace !important;
+  background-color: black !important;
+  color: white !important;
+}
+
+/************************** Navbar/HeaderBar ***********************/
+.header-section {
+  height: 7vh;
+  background-color: rgb(24, 24, 24);
+}
+
+.dashboard-navbar {
+  border-bottom: 1px solid red;
+}
+
+.custom-nav-container {
+  padding: 0;
+}
+
+.navbar-brand {
+  margin: 0;
+}
+
+.navbar-brand span {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.user-option {
+  margin-left: auto;
+  margin-right: 75px;
+}
+
+.user-option a {
+  color: #ffffff;
+  margin-left: 25px;
+}
+
+.user-option .form-inline {
+  position: relative;
+  margin-left: 25px;
+}
+
+.user-option .form-inline input {
+  display: none;
+}
+
+.user-option .form-inline button {
+  color: #ffffff;
+}
+
+.custom-menu-btn {
+  z-index: 9;
+  position: absolute;
+  right: 0;
+  top: 14px;
+}
+
+.custom-menu-btn button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.custom-menu-btn button img {
+  width: 40px;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-x: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 0;
+  right: 30px;
+  font-size: 60px;
+}
+
+.overlay a {
+  padding: 0px;
+  text-decoration: none;
+  font-size: 22px;
+  color: #ffffff;
+  display: block;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  opacity: 0;
+}
+
+.overlay-content {
+  position: relative;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.menu-width {
+  width: 100%;
+}
+
+.menu-width.overlay a {
+  opacity: 1;
+}
+
+/************************** Header ***********************/
+
+.fa-guitar-electric {
+  color: #ff0;
+}
+.title {
+  font-size: 72px;
+  background: -webkit-linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  animation: colorAnimate 20s linear infinite;
+  background-size: 400%;
+}
+.sub-title {
+  font-size: 30px;
+}
+/************************** Stripes ***********************/
+.img {
+  height: 93vh;
+  overflow-y: hidden;
+}
+
+.stripe1 {
+  animation: stripe-one 60s ease 0s infinite;
+  margin-right: 4px;
+}
+@keyframes stripe-one {
+  50% {
+    transform: translateY(-100%);
+  }
+}
+.stripe2 {
+  transform: translateY(-100%);
+  animation: stripe-two 60s ease 0s infinite;
+  margin-left: 4px;
+}
+@keyframes stripe-two {
+  50% {
+    transform: translateY(0%);
+  }
+}
+
+.stripe-single-image {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
+  padding: 3px;
+  background-size: 400%;
+  animation: colorAnimate 20s linear infinite;
+}
+
+.stripe-single-image > * {
+  filter: blur(10px);
+}
+
+.stripe-single-image > img {
+  filter: blur(0);
+}
+
+@keyframes colorAnimate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 300% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
