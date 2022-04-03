@@ -371,6 +371,7 @@ body {
 }
 
 /************************** Coming Soon Section ***********************/
+
 .coming-soon-section {
   position: relative;
   top: -200px;
@@ -439,4 +440,82 @@ body {
   width: 330px;
   background-size: cover;
   border-radius: 25px;
+}
+
+/************************** Popular Artist Section ***********************/
+
+.popular-artist-section {
+  background-color: rgb(24, 24, 24);
+  padding-top: 20px;
+  padding-bottom: 90px;
+}
+
+.popular-artist-button {
+  font-size: 30px;
+}
+
+.popular-artist-card-border {
+  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  margin-left: 5px;
+  margin-right: 5px;
+  background-size: 400%;
+  animation: colorAnimate 20s linear infinite;
+  height: 250px;
+  width: 200px;
+  border-radius: 25px;
+  padding: 3px;
+}
+
+.popular-artist-card {
+  height: 244px;
+  width: 194px;
+  background-color: black;
+  border-radius: 25px;
+  padding: 7px;
+  cursor: pointer;
+}
+
+.popular-artist-image {
+  background-image: url("../assets/images/1.jpg");
+  height: 230px;
+  width: 180px;
+  background-size: cover;
+  border-radius: 25px;
+}
+
+.popular-artist-card:hover .popular-artist-info-overlay {
+  display: block;
+}
+
+.popular-artist-info-overlay {
+  display: none;
+  position: absolute;
+  height: 230px;
+  width: 180px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 20px;
+  top: 10px;
+}
+
+.popular-artist-name {
+  height: 230px;
+  font-size: 20px;
+  background: -webkit-linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  animation: colorAnimate 20s linear infinite;
+  background-size: 400%;
+}
+
+.popular-artist-cards {
+  width: 1256px;
+  position: relative;
+  height: 250px;
+  overflow-x: hidden;
+}
+
+.popular-artist-slider {
+  position: absolute;
+  right: 0px;
 }

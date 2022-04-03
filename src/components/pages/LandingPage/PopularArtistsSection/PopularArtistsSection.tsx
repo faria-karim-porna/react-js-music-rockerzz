@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function PopularArtistsSection() {
-  (document.getElementsByClassName("popular-artist-slider") as HTMLCollectionOf<HTMLElement>)[0].style.transition = "0.5s";
+  
+  useEffect(() => {
+    (document.getElementsByClassName("popular-artist-slider") as HTMLCollectionOf<HTMLElement>)[0].style.transition = "0.5s";
+  }, []);
 
   const popularArtistForwardButton = () => {
     if (
