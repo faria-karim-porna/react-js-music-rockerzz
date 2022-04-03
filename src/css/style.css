@@ -369,3 +369,74 @@ body {
 .album-group {
   width: 1050px;
 }
+
+/************************** Coming Soon Section ***********************/
+.coming-soon-section {
+  position: relative;
+  top: -200px;
+}
+
+.coming-soon-main-text {
+  font-size: 70px;
+  background: -webkit-linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  animation: colorAnimate 20s linear infinite;
+  background-size: 400%;
+}
+
+.coming-soon-sub-text {
+  font-size: 40px;
+}
+
+.coming-soon-album-genre-border {
+  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background-size: 400%;
+  padding: 1px;
+  border-radius: 50px;
+  animation: colorAnimate 20s linear infinite;
+}
+
+.coming-soon-album-genre {
+  padding: 5px 15px;
+  border-radius: 50px;
+  width: fit-content;
+  background-color: black;
+}
+
+.coming-soon-album-genre-text {
+  font-size: 40px;
+  background: -webkit-linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  animation: colorAnimate 20s linear infinite;
+  background-size: 400%;
+}
+
+.coming-soon-album-card-border {
+  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background-size: 400%;
+  animation: colorAnimate 20s linear infinite;
+  height: 500px;
+  width: 350px;
+  border-radius: 25px;
+  padding: 3px;
+}
+
+.coming-soon-album-card {
+  height: 494px;
+  width: 344px;
+  background-color: black;
+  border-radius: 25px;
+  padding: 7px;
+}
+
+.coming-soon-album-image {
+  background-image: url("../assets/images/1.jpg");
+  height: 480px;
+  width: 330px;
+  background-size: cover;
+  border-radius: 25px;
+}
