@@ -309,7 +309,7 @@ body {
 
 .album-image {
   width: 250px;
-  height: 250px;
+  height: 250px !important;
   border-radius: 50%;
 }
 
