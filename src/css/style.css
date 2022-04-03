@@ -131,19 +131,7 @@ body {
 }
 .title {
   font-size: 72px;
-  background: -webkit-linear-gradient(
-    45deg,
-    #fb0094,
-    #00f,
-    #0f0,
-    #ff0,
-    #f00,
-    #fb0094,
-    #00f,
-    #0f0,
-    #ff0,
-    #f00
-  );
+  background: -webkit-linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
@@ -182,19 +170,7 @@ body {
 .stripe-single-image {
   margin-top: 4px;
   margin-bottom: 4px;
-  background: linear-gradient(
-    45deg,
-    #fb0094,
-    #00f,
-    #0f0,
-    #ff0,
-    #f00,
-    #fb0094,
-    #00f,
-    #0f0,
-    #ff0,
-    #f00
-  );
+  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
   padding: 3px;
   background-size: 400%;
   animation: colorAnimate 20s linear infinite;
@@ -218,4 +194,178 @@ body {
   100% {
     background-position: 0 0;
   }
+}
+
+/************************** Circular Section ***********************/
+.circular-section {
+  width: 100%;
+  height: 1500px;
+  border-radius: 100% / 50%;
+  position: relative;
+  background-color: rgb(24, 24, 24);
+  margin-top: 200px;
+  margin-bottom: 250px;
+}
+
+.circular-section-button {
+  font-size: 20px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+}
+
+.prev-button {
+  left: 5%;
+  top: 410px;
+  transform: rotate(-30deg);
+}
+
+.next-button {
+  right: 5%;
+  top: 410px;
+  transform: rotate(30deg);
+}
+
+.circular-slider {
+  height: 510px;
+  width: 100%;
+  margin-top: -150px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cd-disk {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background-size: 400%;
+  animation: colorAnimate 20s linear infinite;
+  transition: transform 0.7s ease-in-out;
+}
+
+.cd-disk:hover {
+  transform: rotate(360deg);
+}
+
+.circular-slide-image {
+  width: 295px;
+  height: 295px;
+  background-image: url("../assets/images/1.jpg");
+  border-radius: 50%;
+  background-size: cover;
+}
+
+.cd-disk-border {
+  background-color: black;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.cd-disk-inner {
+  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background-size: 400%;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  animation: colorAnimate 20s linear infinite;
+}
+
+.cd-disk-hole {
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/************************** Popular Album Section ***********************/
+
+.album-card-border {
+  background: white;
+  width: 30%;
+  padding: 2px;
+  border-radius: 25px;
+  padding: 3px;
+}
+
+.album-card-border:hover {
+  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background-size: 400%;
+  animation: colorAnimate 20s linear infinite;
+  transform: scale(1.1);
+}
+
+.album-card {
+  background-color: rgb(24, 24, 24);
+  border-radius: 25px;
+  padding: 15px;
+}
+
+.album-image {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+
+.album-detail {
+  margin-top: 20px;
+}
+
+.album-text {
+  font-size: 20px;
+}
+
+.album-genre-border {
+  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background-size: 400%;
+  padding: 1px;
+  border-radius: 50px;
+  animation: colorAnimate 20s linear infinite;
+}
+
+.album-genre {
+  padding: 5px 15px;
+  border-radius: 50px;
+  width: fit-content;
+  background-color: black;
+}
+
+.album-genre-text {
+  font-size: 15px;
+  background: -webkit-linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  animation: colorAnimate 20s linear infinite;
+  background-size: 400%;
+}
+
+.fa-play-circle {
+  font-size: 65px;
+  background: -webkit-linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: colorAnimate 20s linear infinite;
+  background-size: 400%;
+}
+.popular-album-slider-section {
+  width: 1050px;
+  position: relative;
+  height: 520px;
+  overflow-x: hidden;
+}
+
+.popular-album-slider {
+  position: absolute;
+  right: 0px;
+}
+
+.album-group {
+  width: 1050px;
 }
