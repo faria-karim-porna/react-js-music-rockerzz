@@ -6,13 +6,15 @@ import "../src/css/style.css";
 import "../src/css/common.css";
 import LoginPage from "./components/pages/LoginPage/LoginPage";
 import SignUpPage from "./components/pages/SignUpPage/SignUpPage";
+import AudioPage from "./components/pages/AudioPage/AudioPage";
 
 function App() {
   return (
     <body>
       {/* <LandingPage /> */}
       {/* <LoginPage /> */}
-      <SignUpPage />
+      {/* <SignUpPage /> */}
+      <AudioPage />
     </body>
   );
 }
