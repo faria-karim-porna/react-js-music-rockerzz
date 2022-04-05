@@ -131,7 +131,19 @@ body {
 }
 .title {
   font-size: 72px;
-  background: -webkit-linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: -webkit-linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
@@ -170,7 +182,19 @@ body {
 .stripe-single-image {
   margin-top: 4px;
   margin-bottom: 4px;
-  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   padding: 3px;
   background-size: 400%;
   animation: colorAnimate 20s linear infinite;
@@ -243,7 +267,19 @@ body {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   background-size: 400%;
   animation: colorAnimate 20s linear infinite;
   transition: transform 0.7s ease-in-out;
@@ -269,7 +305,19 @@ body {
 }
 
 .cd-disk-inner {
-  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   background-size: 400%;
   width: 140px;
   height: 140px;
@@ -295,7 +343,19 @@ body {
 }
 
 .album-card-border:hover {
-  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   background-size: 400%;
   animation: colorAnimate 20s linear infinite;
   transform: scale(1.1);
@@ -322,7 +382,19 @@ body {
 }
 
 .album-genre-border {
-  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   background-size: 400%;
   padding: 1px;
   border-radius: 50px;
@@ -338,7 +410,19 @@ body {
 
 .album-genre-text {
   font-size: 15px;
-  background: -webkit-linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: -webkit-linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
@@ -348,7 +432,19 @@ body {
 
 .fa-play-circle {
   font-size: 65px;
-  background: -webkit-linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: -webkit-linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: colorAnimate 20s linear infinite;
@@ -379,7 +475,19 @@ body {
 
 .coming-soon-main-text {
   font-size: 70px;
-  background: -webkit-linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: -webkit-linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
@@ -392,7 +500,19 @@ body {
 }
 
 .coming-soon-album-genre-border {
-  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   background-size: 400%;
   padding: 1px;
   border-radius: 50px;
@@ -408,7 +528,19 @@ body {
 
 .coming-soon-album-genre-text {
   font-size: 40px;
-  background: -webkit-linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: -webkit-linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
@@ -417,7 +549,19 @@ body {
 }
 
 .coming-soon-album-card-border {
-  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   background-size: 400%;
   animation: colorAnimate 20s linear infinite;
   height: 500px;
@@ -455,7 +599,19 @@ body {
 }
 
 .popular-artist-card-border {
-  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   margin-left: 5px;
   margin-right: 5px;
   background-size: 400%;
@@ -500,7 +656,19 @@ body {
 .popular-artist-name {
   height: 230px;
   font-size: 20px;
-  background: -webkit-linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: -webkit-linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 900;
@@ -534,7 +702,19 @@ body {
 }
 
 .genres-category-card:hover .genre-text {
-  background: -webkit-linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: -webkit-linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
@@ -543,7 +723,19 @@ body {
 }
 
 .genres-category-border {
-  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   background-size: 400%;
   border-radius: 15px;
   height: 100%;
@@ -572,7 +764,19 @@ body {
 }
 
 .top-chart-category-border {
-  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   background-size: 400%;
   border-radius: 15px;
   height: 100%;
@@ -607,18 +811,152 @@ body {
   border-radius: 50%;
   height: 50px;
   width: 50px;
-  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
   background-size: 400%;
   animation: colorAnimate 20s linear infinite;
   color: black;
 }
 
-/* .top-chart-button:hover .fa-play{
-    color: black;
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
-    background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
-    background-size: 400%;
-    animation: colorAnimate 20s linear infinite;
-} */
+/************************** Login Page ***********************/
+
+.login-form-section {
+  z-index: 0;
+}
+
+.login-page {
+  min-height: 100vh;
+}
+
+.login-section {
+  background-color: rgb(24, 24, 24);
+  border-radius: 15px;
+  width: 90vw;
+  min-height: 90vh;
+}
+
+.login-form-card {
+  background-color: black;
+  border-radius: 15px;
+  z-index: -5;
+}
+
+.login-form-border {
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
+  background-size: 400%;
+  border-radius: 15px;
+  height: 100%;
+  animation: colorAnimate 20s linear infinite;
+  z-index: -4;
+}
+
+.login-form-main {
+  background-color: black;
+  border-radius: 20px;
+  height: 100%;
+  font-size: 20px;
+  z-index: -3;
+}
+
+.input-field {
+  margin-top: 20px;
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
+  background-size: 400%;
+  border-radius: 15px;
+  padding: 2px;
+  animation: colorAnimate 20s linear infinite;
+}
+
+input[type="email"],
+input[type="password"] {
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 15px;
+  background-color: black;
+  font-size: 20px;
+}
+
+input[type="submit"] {
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
+  background-size: 400%;
+  border-radius: 15px;
+  padding: 2px;
+  animation: colorAnimate 20s linear infinite;
+  color: black;
+  border: none;
+  cursor: pointer;
+  border: 3px solid rgb(24, 24, 24);
+  font-size: 28px;
+  font-weight: 900;
+}
+
+::placeholder {
+  color: white;
+  font-size: 20px;
+}
+
+input:focus {
+  outline: none !important;
+}
+
+.main-form-body {
+  height: 100vh;
+}
+.form-name {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.login-link-text {
+  color: red;
+  text-decoration: underline;
+  cursor: pointer;
+}
