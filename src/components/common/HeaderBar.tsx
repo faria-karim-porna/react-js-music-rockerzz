@@ -1,5 +1,5 @@
 import React from "react";
-import menuImage from "../../../../assets/images/menu.png";
+import menuImage from "../../assets/images/menu.png";
 
 function HeaderBar() {
   const openNav = () => {

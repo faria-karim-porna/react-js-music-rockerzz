@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function AudioPageBody() {
   let isPlaying = false;
-  let audioSource;
-  let analayzer;
+  let audioSource: MediaElementAudioSourceNode;
+  let analyzer: AnalyserNode;
 
   // The number of bars that should be displayed
   const NBR_OF_BARS = 20;
@@ -12,36 +12,38 @@ function AudioPageBody() {
     isPlaying = true;
     //  Add CD rotation
     const cdDisk = document.getElementById("cd-disk");
-    cdDisk.classList.add("cd-disk-rotation");
+    (cdDisk as HTMLElement).classList.add("cd-disk-rotation");
 
     //  Remove Pause Icon and Add Play Icon
     const icon = document.getElementById("play-pause-icon");
-    icon.classList.remove("fa-play-circle");
-    icon.classList.add("fa-pause-circle");
+    (icon as HTMLElement).classList.remove("fa-play-circle");
+    (icon as HTMLElement).classList.add("fa-pause-circle");
 
     // Get the audio element tag
     const audio = document.querySelector("audio");
-    audio.src =
+    (audio as HTMLAudioElement).src =
       "https://greggman.github.io/doodles/sounds/DOCTOR VOX - Level Up.mp3";
-    // audio.load();
+    // (audio as HTMLAudioElement).load();
 
     // Create an audio context
     const ctx = new AudioContext();
 
     // Create an audio source
     if (audioSource === undefined) {
-      audioSource = ctx.createMediaElementSource(audio);
+      audioSource = ctx.createMediaElementSource(audio as HTMLAudioElement);
       // Create an audio analyzer
-      analayzer = ctx.createAnalyser();
+      analyzer = ctx.createAnalyser();
 
       // Connect the source, to the analyzer, and then back the the context's destination
-      audioSource.connect(analayzer);
+      audioSource.connect(analyzer);
       audioSource.connect(ctx.destination);
     }
 
     // Print the analyze frequencies
-    const frequencyData = new Uint8Array(analayzer.frequencyBinCount);
-    analayzer.getByteFrequencyData(frequencyData);
+    const frequencyData = new Uint8Array(
+      (analyzer as AnalyserNode).frequencyBinCount
+    );
+    (analyzer as AnalyserNode).getByteFrequencyData(frequencyData);
     console.log("frequencyData", frequencyData);
 
     // Get the visualizer container
@@ -50,15 +52,15 @@ function AudioPageBody() {
     // Create a set of pre-defined bars
     for (let i = 0; i < NBR_OF_BARS; i++) {
       const bar = document.createElement("DIV");
-      bar.setAttribute("id", "bar" + i);
-      bar.setAttribute("class", "visualizer-container__bar");
-      visualizerContainer.appendChild(bar);
+      (bar as HTMLElement).setAttribute("id", "bar" + i);
+      (bar as HTMLElement).setAttribute("class", "visualizer-container__bar");
+      (visualizerContainer as Element).appendChild(bar);
     }
 
     // This function has the task to adjust the bar heights according to the frequency data
     const renderFrame = () => {
       // Update our frequency data array with the latest frequency data
-      analayzer.getByteFrequencyData(frequencyData);
+      (analyzer as AnalyserNode).getByteFrequencyData(frequencyData);
 
       for (let i = 0; i < NBR_OF_BARS; i++) {
         // Since the frequency data array is 1024 in length, we don't want to fetch
@@ -76,7 +78,7 @@ function AudioPageBody() {
         // If fd is undefined, default to 0, then make sure fd is at least 4
         // This will make make a quiet frequency at least 4px high for visual effects
         const barHeight = Math.max(1, fd || 0);
-        bar.style.height = barHeight + "px";
+        (bar as HTMLElement).style.height = barHeight + "px";
       }
 
       // At the next animation frame, call ourselves
@@ -85,30 +87,30 @@ function AudioPageBody() {
 
     renderFrame();
 
-    audio.volume = 0.1;
-    audio.play();
+    (audio as HTMLAudioElement).volume = 0.1;
+    (audio as HTMLAudioElement).play();
   };
 
   const pauseSong = () => {
     isPlaying = false;
     //  Remove CD rotation
     const cdDisk = document.getElementById("cd-disk");
-    cdDisk.classList.remove("cd-disk-rotation");
+    (cdDisk as HTMLElement).classList.remove("cd-disk-rotation");
 
     //  Remove Play Icon and Add Pause Icon
     const icon = document.getElementById("play-pause-icon");
-    icon.classList.remove("fa-pause-circle");
-    icon.classList.add("fa-play-circle");
+    (icon as HTMLElement).classList.remove("fa-pause-circle");
+    (icon as HTMLElement).classList.add("fa-play-circle");
 
     // Remove a set of pre-defined bars
     for (let i = 0; i < NBR_OF_BARS; i++) {
       const bar = document.getElementById("bar" + i);
-      bar.remove();
+      (bar as HTMLElement).remove();
     }
 
     // Get the audio element tag
     const audio = document.querySelector("audio");
-    audio.pause();
+    (audio as HTMLAudioElement).pause();
   };
 
   const playPause = () => {
@@ -121,11 +123,17 @@ function AudioPageBody() {
 
     //change audio time based on slider
     let durationSlider = document.querySelector("#duration-slider");
-    const sliderPosition = audio.duration * (durationSlider.value / 100);
-    audio.currentTime = sliderPosition;
-    const sliderPoint = audio.currentTime * (100 / audio.duration);
+    const sliderPosition =
+      (audio as HTMLAudioElement).duration *
+      (Number((durationSlider as HTMLInputElement).value) / 100);
+    (audio as HTMLAudioElement).currentTime = sliderPosition;
+    const sliderPoint =
+      (audio as HTMLAudioElement).currentTime *
+      (100 / (audio as HTMLAudioElement).duration);
     // change slider fill
-    durationSlider.style.background = `linear-gradient(90deg, transparent ${sliderPoint}%, white ${
+    (
+      durationSlider as HTMLInputElement
+    ).style.background = `linear-gradient(90deg, transparent ${sliderPoint}%, white ${
       sliderPoint + 0.1
     }%)`;
   };
@@ -136,11 +144,14 @@ function AudioPageBody() {
 
     //change audio volume based on slider
     let volumeSlider = document.querySelector("#volume-slider");
-    const volumeSliderPosition = volumeSlider.value / 100;
-    audio.volume = volumeSliderPosition;
+    const volumeSliderPosition =
+      Number((volumeSlider as HTMLInputElement).value) / 100;
+    (audio as HTMLAudioElement).volume = volumeSliderPosition;
     const volumeSliderPoint = volumeSliderPosition * 100;
     // change volume slider fill
-    volumeSlider.style.background = `linear-gradient(90deg, transparent ${volumeSliderPoint}%, white ${
+    (
+      volumeSlider as HTMLElement
+    ).style.background = `linear-gradient(90deg, transparent ${volumeSliderPoint}%, white ${
       volumeSliderPoint + 0.1
     }%)`;
   };
@@ -151,11 +162,15 @@ function AudioPageBody() {
 
     //change slider based on audio time
     let durationSlider = document.querySelector("#duration-slider");
-    if (!isNaN(audio.duration)) {
-      const sliderPosition = audio.currentTime * (100 / audio.duration);
-      durationSlider.value = sliderPosition;
+    if (!isNaN((audio as HTMLAudioElement).duration)) {
+      const sliderPosition =
+        (audio as HTMLAudioElement).currentTime *
+        (100 / (audio as HTMLAudioElement).duration);
+      (durationSlider as HTMLInputElement).value = String(sliderPosition);
       // change slider fill
-      durationSlider.style.background = `linear-gradient(90deg, transparent ${sliderPosition}%, white ${
+      (
+        durationSlider as HTMLInputElement
+      ).style.background = `linear-gradient(90deg, transparent ${sliderPosition}%, white ${
         sliderPosition + 0.1
       }%)`;
     }
@@ -167,15 +182,20 @@ function AudioPageBody() {
 
     //change slider based on audio time
     let durationSlider = document.querySelector("#duration-slider");
-    if (!isNaN(audio.duration)) {
+    if (!isNaN((audio as HTMLAudioElement).duration)) {
       // to speed up the audio
-      // audio.playbackRate = audio.playbackRate + 0.5;
+      // (audio as HTMLAudioElement).playbackRate = (audio as HTMLAudioElement).playbackRate + 0.5;
       // forward the current audio for 10s
-      audio.currentTime = audio.currentTime + 10;
-      const sliderPosition = audio.currentTime * (100 / audio.duration);
-      durationSlider.value = sliderPosition;
+      (audio as HTMLAudioElement).currentTime =
+        (audio as HTMLAudioElement).currentTime + 10;
+      const sliderPosition =
+        (audio as HTMLAudioElement).currentTime *
+        (100 / (audio as HTMLAudioElement).duration);
+      (durationSlider as HTMLInputElement).value = String(sliderPosition);
       // change slider fill
-      durationSlider.style.background = `linear-gradient(90deg, transparent ${sliderPosition}%, white ${
+      (
+        durationSlider as HTMLInputElement
+      ).style.background = `linear-gradient(90deg, transparent ${sliderPosition}%, white ${
         sliderPosition + 0.1
       }%)`;
     }
@@ -187,33 +207,44 @@ function AudioPageBody() {
 
     //change slider based on audio time
     let durationSlider = document.querySelector("#duration-slider");
-    if (!isNaN(audio.duration)) {
+    if (!isNaN((audio as HTMLAudioElement).duration)) {
       // to speed down the audio
-      // audio.playbackRate = audio.playbackRate - 0.5;
+      // (audio as HTMLAudioElement).playbackRate = (audio as HTMLAudioElement).playbackRate - 0.5;
       // backward the current audio for 10s
-      audio.currentTime = audio.currentTime - 10;
-      const sliderPosition = audio.currentTime * (100 / audio.duration);
-      durationSlider.value = sliderPosition;
+      (audio as HTMLAudioElement).currentTime =
+        (audio as HTMLAudioElement).currentTime - 10;
+      const sliderPosition =
+        (audio as HTMLAudioElement).currentTime *
+        (100 / (audio as HTMLAudioElement).duration);
+      (durationSlider as HTMLInputElement).value = String(sliderPosition);
       // change slider fill
-      durationSlider.style.background = `linear-gradient(90deg, transparent ${sliderPosition}%, white ${
+      (
+        durationSlider as HTMLInputElement
+      ).style.background = `linear-gradient(90deg, transparent ${sliderPosition}%, white ${
         sliderPosition + 0.1
       }%)`;
     }
   };
 
   const addToFavorite = () => {
-    document.getElementById("favorite").classList.toggle("add-to-favorite");
+    const favorite = document.getElementById("favorite");
+    (favorite as HTMLElement).classList.toggle("add-to-favorite");
   };
 
   setInterval(upDateDuration, 1000);
 
   // change volume slider fill
-  const volumeSlider = document.querySelector("#volume-slider");
-  const volumeSliderPosition = volumeSlider.value / 100;
-  const volumeSliderPoint = volumeSliderPosition * 100;
-  volumeSlider.style.background = `linear-gradient(90deg, transparent ${volumeSliderPoint}%, white ${
-    volumeSliderPoint + 0.1
-  }%)`;
+  useEffect(() => {
+    const volumeSlider = document.querySelector("#volume-slider");
+    const volumeSliderPosition =
+      Number((volumeSlider as HTMLInputElement).value) / 100;
+    const volumeSliderPoint = volumeSliderPosition * 100;
+    (
+      volumeSlider as HTMLInputElement
+    ).style.background = `linear-gradient(90deg, transparent ${volumeSliderPoint}%, white ${
+      volumeSliderPoint + 0.1
+    }%)`;
+  }, []);
 
   return (
     <div className="audio-page p-5">

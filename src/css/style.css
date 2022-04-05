@@ -1219,7 +1219,7 @@ input:focus {
 .circular-slide-image {
   width: 245px;
   height: 245px;
-  background-image: url("../images/1.jpg");
+  background-image: url("../assets/images/1.jpg");
   border-radius: 50%;
   background-size: cover;
 }
@@ -1398,4 +1398,52 @@ input[type="range"]::-webkit-slider-thumb {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/************************** Audio Section ***********************/
+
+body {
+  font-family: "Inconsolata", monospace;
+  background-color: black;
+  color: white;
+}
+
+.audio-section {
+  background-color: rgb(24, 24, 24);
+  border-radius: 15px;
+}
+
+.audio-player-card {
+  background-color: black;
+  border-radius: 15px;
+  z-index: -5;
+}
+
+.audio-player-border {
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
+  background-size: 400%;
+  border-radius: 15px;
+  height: 100%;
+  animation: colorAnimate 20s linear infinite;
+  z-index: -4;
+}
+
+.audio-player-main {
+  background-color: black;
+  border-radius: 20px;
+  height: 100%;
+  font-size: 20px;
+  z-index: -3;
 }
