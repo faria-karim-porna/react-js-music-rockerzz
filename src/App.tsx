@@ -5,12 +5,14 @@ import LandingPage from "./components/pages/LandingPage/LandingPage";
 import "../src/css/style.css";
 import "../src/css/common.css";
 import LoginPage from "./components/pages/LoginPage/LoginPage";
+import SignUpPage from "./components/pages/SignUpPage/SignUpPage";
 
 function App() {
   return (
     <body>
       {/* <LandingPage /> */}
-      <LoginPage />
+      {/* <LoginPage /> */}
+      <SignUpPage />
     </body>
   );
 }
