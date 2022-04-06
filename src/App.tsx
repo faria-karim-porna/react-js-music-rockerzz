@@ -8,6 +8,7 @@ import LoginPage from "./components/pages/LoginPage/LoginPage";
 import SignUpPage from "./components/pages/SignUpPage/SignUpPage";
 import AudioPage from "./components/pages/AudioPage/AudioPage";
 import DashboardPage from "./components/pages/DashboardPage/DashboardPage";
+import AdminUsersPage from "./components/pages/AdminUsersPage/AdminUsersPage";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
       {/* <LoginPage /> */}
       {/* <SignUpPage /> */}
       {/* <AudioPage /> */}
-      <DashboardPage />
+      {/* <DashboardPage /> */}
+      <AdminUsersPage />
     </body>
   );
 }
