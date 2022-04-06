@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap");
+
 body {
   font-family: "Inconsolata", monospace !important;
   background-color: black !important;
@@ -1446,4 +1448,192 @@ body {
   height: 100%;
   font-size: 20px;
   z-index: -3;
+}
+
+/************************** SideBar Section ***********************/
+
+.sidebar {
+  width: 117px;
+  background-color: rgb(24, 24, 24);
+  height: 93vh;
+}
+
+.sidebar-tab-icons {
+  font-size: 35px !important;
+}
+
+.sidebar-tab {
+  height: 100px;
+}
+
+.sidebar-tab-texts {
+  font-size: 20px;
+}
+
+.sidebar-tab-active {
+  background-color: black;
+}
+
+.sidebar-tab-active-text {
+  background: -webkit-linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: colorAnimate 20s linear infinite;
+  background-size: 400%;
+}
+
+/************************** Dashboard Widget Section ***********************/
+
+.dashboard-body {
+  background-color: rgb(24, 24, 24);
+  border-radius: 10px;
+}
+
+.dashboard-widget-box {
+  border-radius: 10px;
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
+  background-size: 400%;
+  animation: colorAnimate 20s linear infinite;
+  min-width: 22%;
+  height: 200px;
+  padding: 3px;
+}
+
+.dashboard-widget-box-inner {
+  background-color: black;
+  border-radius: 10px;
+  height: 100%;
+}
+
+.dashboard-widget-text-main {
+  color: red;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+/************************** Dashboard Main Section ***********************/
+
+.dashboard-main {
+  width: calc(100vw - 117px);
+  font-size: 20px;
+}
+
+.dashboard-selected-tab {
+  border: none;
+  border-bottom: 1px solid red;
+  color: red;
+}
+
+.dashboard-tab-line {
+  border-bottom: 1px solid white;
+  width: inherit;
+}
+
+.dashboard-tab {
+  border-bottom: 1px solid white;
+}
+
+.users-search-section {
+  border-radius: 10px;
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
+  background-size: 400%;
+  animation: colorAnimate 20s linear infinite;
+}
+
+.users-search-inner {
+  border-radius: 10px;
+  padding: 5px 10px;
+  background: black;
+  margin: 1px;
+}
+
+.users-search {
+  background-color: transparent;
+  border: none;
+}
+
+.fa-search {
+  background: -webkit-linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: colorAnimate 20s linear infinite;
+  background-size: 400%;
+}
+
+.admin-buttons {
+  border-radius: 10px;
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00,
+    #fb0094,
+    #00f,
+    #0f0,
+    #ff0,
+    #f00
+  );
+  background-size: 400%;
+  animation: colorAnimate 20s linear infinite;
+}
+
+.admin-buttons-inner {
+  border-radius: 10px;
+  padding: 5px 10px;
+  background: black;
+  margin: 1px;
+}
+
+.admins-table {
+  display: none;
 }

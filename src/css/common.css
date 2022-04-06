@@ -52,12 +52,16 @@ body {
   padding-bottom: 5px;
 }
 
+.pl-2 {
+  padding-left: 0.5rem;
+}
+
 .pl-4 {
   padding-left: 1.5rem;
 }
 
-.pl-2 {
-  padding-left: 0.5rem;
+.pl-5 {
+  padding-left: 3rem;
 }
 
 .pr-4 {
@@ -66,6 +70,10 @@ body {
 
 .pr-2 {
   padding-right: 0.5rem;
+}
+
+.pr-5 {
+  padding-right: 3rem;
 }
 
 .w-5 {

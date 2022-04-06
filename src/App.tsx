@@ -7,6 +7,7 @@ import "../src/css/common.css";
 import LoginPage from "./components/pages/LoginPage/LoginPage";
 import SignUpPage from "./components/pages/SignUpPage/SignUpPage";
 import AudioPage from "./components/pages/AudioPage/AudioPage";
+import DashboardPage from "./components/pages/DashboardPage/DashboardPage";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       {/* <LandingPage /> */}
       {/* <LoginPage /> */}
       {/* <SignUpPage /> */}
-      <AudioPage />
+      {/* <AudioPage /> */}
+      <DashboardPage />
     </body>
   );
 }
