@@ -6,19 +6,7 @@ body {
 
 .section-name {
   font-size: 72px;
-  background: -webkit-linear-gradient(
-    45deg,
-    #fb0094,
-    #00f,
-    #0f0,
-    #ff0,
-    #f00,
-    #fb0094,
-    #00f,
-    #0f0,
-    #ff0,
-    #f00
-  );
+  background: -webkit-linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
@@ -30,19 +18,7 @@ body {
 
 .sub-section-name {
   font-size: 41px;
-  background: -webkit-linear-gradient(
-    45deg,
-    #fb0094,
-    #00f,
-    #0f0,
-    #ff0,
-    #f00,
-    #fb0094,
-    #00f,
-    #0f0,
-    #ff0,
-    #f00
-  );
+  background: -webkit-linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
@@ -74,6 +50,10 @@ body {
 
 .pr-5 {
   padding-right: 3rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
 }
 
 .w-5 {

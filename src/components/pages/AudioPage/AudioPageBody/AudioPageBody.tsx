@@ -1,6 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 function AudioPageBody() {
+  const [volumeValue, setVolumeValue] = useState("10");
+  const [durationValue, setDurationValue] = useState("0");
   let isPlaying = false;
   let audioSource: MediaElementAudioSourceNode;
   let analyzer: AnalyserNode;
@@ -12,7 +14,7 @@ function AudioPageBody() {
     isPlaying = true;
     //  Add CD rotation
     const cdDisk = document.getElementById("cd-disk");
-    (cdDisk as HTMLElement).classList.add("cd-disk-rotation");
+    (cdDisk as HTMLElement).classList.add("audio-player-cd-disk-rotation");
 
     //  Remove Pause Icon and Add Play Icon
     const icon = document.getElementById("play-pause-icon");
@@ -21,8 +23,7 @@ function AudioPageBody() {
 
     // Get the audio element tag
     const audio = document.querySelector("audio");
-    (audio as HTMLAudioElement).src =
-      "https://greggman.github.io/doodles/sounds/DOCTOR VOX - Level Up.mp3";
+    (audio as HTMLAudioElement).src = "https://greggman.github.io/doodles/sounds/DOCTOR VOX - Level Up.mp3";
     // (audio as HTMLAudioElement).load();
 
     // Create an audio context
@@ -40,9 +41,7 @@ function AudioPageBody() {
     }
 
     // Print the analyze frequencies
-    const frequencyData = new Uint8Array(
-      (analyzer as AnalyserNode).frequencyBinCount
-    );
+    const frequencyData = new Uint8Array((analyzer as AnalyserNode).frequencyBinCount);
     (analyzer as AnalyserNode).getByteFrequencyData(frequencyData);
     console.log("frequencyData", frequencyData);
 
@@ -89,13 +88,14 @@ function AudioPageBody() {
 
     (audio as HTMLAudioElement).volume = 0.1;
     (audio as HTMLAudioElement).play();
+    setInterval(upDateDuration, 1000);
   };
 
   const pauseSong = () => {
     isPlaying = false;
     //  Remove CD rotation
     const cdDisk = document.getElementById("cd-disk");
-    (cdDisk as HTMLElement).classList.remove("cd-disk-rotation");
+    (cdDisk as HTMLElement).classList.remove("audio-player-cd-disk-rotation");
 
     //  Remove Play Icon and Add Pause Icon
     const icon = document.getElementById("play-pause-icon");
@@ -123,17 +123,12 @@ function AudioPageBody() {
 
     //change audio time based on slider
     let durationSlider = document.querySelector("#duration-slider");
-    const sliderPosition =
-      (audio as HTMLAudioElement).duration *
-      (Number((durationSlider as HTMLInputElement).value) / 100);
+    const sliderPosition = (audio as HTMLAudioElement).duration * (Number((durationSlider as HTMLInputElement).value) / 100);
     (audio as HTMLAudioElement).currentTime = sliderPosition;
-    const sliderPoint =
-      (audio as HTMLAudioElement).currentTime *
-      (100 / (audio as HTMLAudioElement).duration);
+    const sliderPoint = (audio as HTMLAudioElement).currentTime * (100 / (audio as HTMLAudioElement).duration);
+    setDurationValue(String(sliderPoint));
     // change slider fill
-    (
-      durationSlider as HTMLInputElement
-    ).style.background = `linear-gradient(90deg, transparent ${sliderPoint}%, white ${
+    (durationSlider as HTMLInputElement).style.background = `linear-gradient(90deg, transparent ${sliderPoint}%, white ${
       sliderPoint + 0.1
     }%)`;
   };
@@ -144,14 +139,13 @@ function AudioPageBody() {
 
     //change audio volume based on slider
     let volumeSlider = document.querySelector("#volume-slider");
-    const volumeSliderPosition =
-      Number((volumeSlider as HTMLInputElement).value) / 100;
+    const volumeSliderPosition = Number((volumeSlider as HTMLInputElement).value) / 100;
+
     (audio as HTMLAudioElement).volume = volumeSliderPosition;
     const volumeSliderPoint = volumeSliderPosition * 100;
+    setVolumeValue(String(volumeSliderPoint));
     // change volume slider fill
-    (
-      volumeSlider as HTMLElement
-    ).style.background = `linear-gradient(90deg, transparent ${volumeSliderPoint}%, white ${
+    (volumeSlider as HTMLElement).style.background = `linear-gradient(90deg, transparent ${volumeSliderPoint}%, white ${
       volumeSliderPoint + 0.1
     }%)`;
   };
@@ -163,14 +157,10 @@ function AudioPageBody() {
     //change slider based on audio time
     let durationSlider = document.querySelector("#duration-slider");
     if (!isNaN((audio as HTMLAudioElement).duration)) {
-      const sliderPosition =
-        (audio as HTMLAudioElement).currentTime *
-        (100 / (audio as HTMLAudioElement).duration);
+      const sliderPosition = (audio as HTMLAudioElement).currentTime * (100 / (audio as HTMLAudioElement).duration);
       (durationSlider as HTMLInputElement).value = String(sliderPosition);
       // change slider fill
-      (
-        durationSlider as HTMLInputElement
-      ).style.background = `linear-gradient(90deg, transparent ${sliderPosition}%, white ${
+      (durationSlider as HTMLInputElement).style.background = `linear-gradient(90deg, transparent ${sliderPosition}%, white ${
         sliderPosition + 0.1
       }%)`;
     }
@@ -186,16 +176,11 @@ function AudioPageBody() {
       // to speed up the audio
       // (audio as HTMLAudioElement).playbackRate = (audio as HTMLAudioElement).playbackRate + 0.5;
       // forward the current audio for 10s
-      (audio as HTMLAudioElement).currentTime =
-        (audio as HTMLAudioElement).currentTime + 10;
-      const sliderPosition =
-        (audio as HTMLAudioElement).currentTime *
-        (100 / (audio as HTMLAudioElement).duration);
+      (audio as HTMLAudioElement).currentTime = (audio as HTMLAudioElement).currentTime + 10;
+      const sliderPosition = (audio as HTMLAudioElement).currentTime * (100 / (audio as HTMLAudioElement).duration);
       (durationSlider as HTMLInputElement).value = String(sliderPosition);
       // change slider fill
-      (
-        durationSlider as HTMLInputElement
-      ).style.background = `linear-gradient(90deg, transparent ${sliderPosition}%, white ${
+      (durationSlider as HTMLInputElement).style.background = `linear-gradient(90deg, transparent ${sliderPosition}%, white ${
         sliderPosition + 0.1
       }%)`;
     }
@@ -211,16 +196,11 @@ function AudioPageBody() {
       // to speed down the audio
       // (audio as HTMLAudioElement).playbackRate = (audio as HTMLAudioElement).playbackRate - 0.5;
       // backward the current audio for 10s
-      (audio as HTMLAudioElement).currentTime =
-        (audio as HTMLAudioElement).currentTime - 10;
-      const sliderPosition =
-        (audio as HTMLAudioElement).currentTime *
-        (100 / (audio as HTMLAudioElement).duration);
+      (audio as HTMLAudioElement).currentTime = (audio as HTMLAudioElement).currentTime - 10;
+      const sliderPosition = (audio as HTMLAudioElement).currentTime * (100 / (audio as HTMLAudioElement).duration);
       (durationSlider as HTMLInputElement).value = String(sliderPosition);
       // change slider fill
-      (
-        durationSlider as HTMLInputElement
-      ).style.background = `linear-gradient(90deg, transparent ${sliderPosition}%, white ${
+      (durationSlider as HTMLInputElement).style.background = `linear-gradient(90deg, transparent ${sliderPosition}%, white ${
         sliderPosition + 0.1
       }%)`;
     }
@@ -231,17 +211,12 @@ function AudioPageBody() {
     (favorite as HTMLElement).classList.toggle("add-to-favorite");
   };
 
-  setInterval(upDateDuration, 1000);
-
   // change volume slider fill
   useEffect(() => {
     const volumeSlider = document.querySelector("#volume-slider");
-    const volumeSliderPosition =
-      Number((volumeSlider as HTMLInputElement).value) / 100;
+    const volumeSliderPosition = Number((volumeSlider as HTMLInputElement).value) / 100;
     const volumeSliderPoint = volumeSliderPosition * 100;
-    (
-      volumeSlider as HTMLInputElement
-    ).style.background = `linear-gradient(90deg, transparent ${volumeSliderPoint}%, white ${
+    (volumeSlider as HTMLInputElement).style.background = `linear-gradient(90deg, transparent ${volumeSliderPoint}%, white ${
       volumeSliderPoint + 0.1
     }%)`;
   }, []);
@@ -263,14 +238,11 @@ function AudioPageBody() {
                   <div className="audio-player-main d-flex justify-content-center align-items-center text-center pt-4 pb-4">
                     <div className="w-75 audio-player-section">
                       <div className="d-flex justify-content-center">
-                        <div
-                          className="cd-disk d-flex justify-content-center align-items-center disk-3"
-                          id="cd-disk"
-                        >
-                          <div className="circular-slide-image d-flex justify-content-center align-items-center">
-                            <div className="cd-disk-border d-flex justify-content-center align-items-center">
-                              <div className="cd-disk-inner d-flex justify-content-center align-items-center">
-                                <div className="cd-disk-hole"></div>
+                        <div className="audio-player-cd-disk d-flex justify-content-center align-items-center disk-3" id="cd-disk">
+                          <div className="audio-player-circular-slide-image d-flex justify-content-center align-items-center">
+                            <div className="audio-player-cd-disk-border d-flex justify-content-center align-items-center">
+                              <div className="audio-player-cd-disk-inner d-flex justify-content-center align-items-center">
+                                <div className="audio-player-cd-disk-hole"></div>
                               </div>
                             </div>
                           </div>
@@ -287,18 +259,14 @@ function AudioPageBody() {
                           name=""
                           min="0"
                           max="100"
-                          value="0"
+                          value={durationValue}
                           id="duration-slider"
                           onChange={() => changeDuration()}
                         />
                         <div className="range-fill"></div>
 
                         <div className="audio-player-buttons d-flex justify-content-between align-items-center">
-                          <div
-                            className="w-25"
-                            onClick={() => addToFavorite()}
-                            id="favorite"
-                          >
+                          <div className="w-25" onClick={() => addToFavorite()} id="favorite">
                             <i className="fa fa-heart"></i>
                           </div>
                           <div className="d-flex align-items-center">
@@ -306,10 +274,7 @@ function AudioPageBody() {
                               <i className="fa fa-step-backward"></i>
                             </div>
                             <div onClick={() => playPause()}>
-                              <i
-                                className="fa fa-play-circle"
-                                id="play-pause-icon"
-                              ></i>
+                              <i className="fa fa-play-circle" id="play-pause-icon"></i>
                             </div>
                             <div onClick={() => forwardDuration()}>
                               <i className="fa fa-step-forward"></i>
@@ -324,8 +289,8 @@ function AudioPageBody() {
                                 id="volume-slider"
                                 min="0"
                                 max="100"
-                                value="10"
-                                onClick={() => changeVolume()}
+                                value={volumeValue}
+                                onChange={() => changeVolume()}
                               />
                               <div className="volume-range-fill"></div>
                             </div>
@@ -349,9 +314,7 @@ function AudioPageBody() {
                 <div className="playlist-border">
                   <div className="playlist-main d-flex justify-content-center">
                     <div className="d-flex align-items-center text-center w-90">
-                      <div className="top-chart-text w-5 d-flex justify-content-center">
-                        1
-                      </div>
+                      <div className="top-chart-text w-5 d-flex justify-content-center">1</div>
                       <div className="w-20 d-flex justify-content-center">
                         <div className="top-chart-image"></div>
                       </div>
@@ -373,9 +336,7 @@ function AudioPageBody() {
                 <div className="playlist-border">
                   <div className="playlist-main d-flex justify-content-center">
                     <div className="d-flex align-items-center text-center w-90">
-                      <div className="top-chart-text w-5 d-flex justify-content-center">
-                        1
-                      </div>
+                      <div className="top-chart-text w-5 d-flex justify-content-center">1</div>
                       <div className="w-20 d-flex justify-content-center">
                         <div className="top-chart-image"></div>
                       </div>
@@ -397,9 +358,7 @@ function AudioPageBody() {
                 <div className="playlist-border">
                   <div className="playlist-main d-flex justify-content-center">
                     <div className="d-flex align-items-center text-center w-90">
-                      <div className="top-chart-text w-5 d-flex justify-content-center">
-                        1
-                      </div>
+                      <div className="top-chart-text w-5 d-flex justify-content-center">1</div>
                       <div className="w-20 d-flex justify-content-center">
                         <div className="top-chart-image"></div>
                       </div>
@@ -421,9 +380,7 @@ function AudioPageBody() {
                 <div className="playlist-border">
                   <div className="playlist-main d-flex justify-content-center">
                     <div className="d-flex align-items-center text-center w-90">
-                      <div className="top-chart-text w-5 d-flex justify-content-center">
-                        1
-                      </div>
+                      <div className="top-chart-text w-5 d-flex justify-content-center">1</div>
                       <div className="w-20 d-flex justify-content-center">
                         <div className="top-chart-image"></div>
                       </div>
@@ -445,9 +402,7 @@ function AudioPageBody() {
                 <div className="playlist-border">
                   <div className="playlist-main d-flex justify-content-center">
                     <div className="d-flex align-items-center text-center w-90">
-                      <div className="top-chart-text w-5 d-flex justify-content-center">
-                        1
-                      </div>
+                      <div className="top-chart-text w-5 d-flex justify-content-center">1</div>
                       <div className="w-20 d-flex justify-content-center">
                         <div className="top-chart-image"></div>
                       </div>
@@ -468,9 +423,7 @@ function AudioPageBody() {
       </div>
 
       <div>
-        <div className="sub-section-name w-100 text-center">
-          Popular Audio Albums
-        </div>
+        <div className="sub-section-name w-100 text-center">Popular Audio Albums</div>
         <div className="w-100 d-flex justify-content-center mt-5">
           <div className="d-flex align-items-center audio-album-slider-section">
             <div className="d-flex audio-album-slider">
@@ -478,25 +431,15 @@ function AudioPageBody() {
                 <div className="audio-album-card-border">
                   <div className="audio-album-card">
                     <div className="d-flex justify-content-center">
-                      <img
-                        src="images/1.jpg"
-                        alt=""
-                        className="img-fluid audio-album-image"
-                      />
+                      <img src="images/1.jpg" alt="" className="img-fluid audio-album-image" />
                     </div>
                     <div className="audio-album-detail">
-                      <div className="text-center audio-album-text">
-                        Song Name - Album Name
-                      </div>
+                      <div className="text-center audio-album-text">Song Name - Album Name</div>
                       <div className="d-flex justify-content-center">
-                        <div className="text-center audio-album-text mr-3">
-                          Artists Name
-                        </div>
+                        <div className="text-center audio-album-text mr-3">Artists Name</div>
                         <div className="d-flex justify-content-center audio-album-genre-border">
                           <div className="audio-album-genre">
-                            <div className="text-center audio-album-genre-text">
-                              Genre Name
-                            </div>
+                            <div className="text-center audio-album-genre-text">Genre Name</div>
                           </div>
                         </div>
                       </div>
@@ -510,25 +453,15 @@ function AudioPageBody() {
                 <div className="audio-album-card-border">
                   <div className="audio-album-card">
                     <div className="d-flex justify-content-center">
-                      <img
-                        src="images/1.jpg"
-                        alt=""
-                        className="img-fluid audio-album-image"
-                      />
+                      <img src="images/1.jpg" alt="" className="img-fluid audio-album-image" />
                     </div>
                     <div className="audio-album-detail">
-                      <div className="text-center audio-album-text">
-                        Song Name - Album Name
-                      </div>
+                      <div className="text-center audio-album-text">Song Name - Album Name</div>
                       <div className="d-flex justify-content-center">
-                        <div className="text-center audio-album-text mr-3">
-                          Artists Name
-                        </div>
+                        <div className="text-center audio-album-text mr-3">Artists Name</div>
                         <div className="d-flex justify-content-center audio-album-genre-border">
                           <div className="audio-album-genre">
-                            <div className="text-center audio-album-genre-text">
-                              Genre Name
-                            </div>
+                            <div className="text-center audio-album-genre-text">Genre Name</div>
                           </div>
                         </div>
                       </div>
@@ -542,25 +475,15 @@ function AudioPageBody() {
                 <div className="audio-album-card-border">
                   <div className="audio-album-card">
                     <div className="d-flex justify-content-center">
-                      <img
-                        src="images/1.jpg"
-                        alt=""
-                        className="img-fluid audio-album-image"
-                      />
+                      <img src="images/1.jpg" alt="" className="img-fluid audio-album-image" />
                     </div>
                     <div className="audio-album-detail">
-                      <div className="text-center audio-album-text">
-                        Song Name - Album Name
-                      </div>
+                      <div className="text-center audio-album-text">Song Name - Album Name</div>
                       <div className="d-flex justify-content-center">
-                        <div className="text-center audio-album-text mr-3">
-                          Artists Name
-                        </div>
+                        <div className="text-center audio-album-text mr-3">Artists Name</div>
                         <div className="d-flex justify-content-center audio-album-genre-border">
                           <div className="audio-album-genre">
-                            <div className="text-center audio-album-genre-text">
-                              Genre Name
-                            </div>
+                            <div className="text-center audio-album-genre-text">Genre Name</div>
                           </div>
                         </div>
                       </div>
@@ -575,25 +498,15 @@ function AudioPageBody() {
                 <div className="audio-album-card-border">
                   <div className="audio-album-card">
                     <div className="d-flex justify-content-center">
-                      <img
-                        src="images/1.jpg"
-                        alt=""
-                        className="img-fluid audio-album-image"
-                      />
+                      <img src="images/1.jpg" alt="" className="img-fluid audio-album-image" />
                     </div>
                     <div className="audio-album-detail">
-                      <div className="text-center audio-album-text">
-                        Song Name - Album Name
-                      </div>
+                      <div className="text-center audio-album-text">Song Name - Album Name</div>
                       <div className="d-flex justify-content-center">
-                        <div className="text-center audio-album-text mr-3">
-                          Artists Name
-                        </div>
+                        <div className="text-center audio-album-text mr-3">Artists Name</div>
                         <div className="d-flex justify-content-center audio-album-genre-border">
                           <div className="audio-album-genre">
-                            <div className="text-center audio-album-genre-text">
-                              Genre Name
-                            </div>
+                            <div className="text-center audio-album-genre-text">Genre Name</div>
                           </div>
                         </div>
                       </div>
@@ -607,25 +520,15 @@ function AudioPageBody() {
                 <div className="audio-album-card-border">
                   <div className="audio-album-card">
                     <div className="d-flex justify-content-center">
-                      <img
-                        src="images/1.jpg"
-                        alt=""
-                        className="img-fluid audio-album-image"
-                      />
+                      <img src="images/1.jpg" alt="" className="img-fluid audio-album-image" />
                     </div>
                     <div className="audio-album-detail">
-                      <div className="text-center audio-album-text">
-                        Song Name - Album Name
-                      </div>
+                      <div className="text-center audio-album-text">Song Name - Album Name</div>
                       <div className="d-flex justify-content-center">
-                        <div className="text-center audio-album-text mr-3">
-                          Artists Name
-                        </div>
+                        <div className="text-center audio-album-text mr-3">Artists Name</div>
                         <div className="d-flex justify-content-center audio-album-genre-border">
                           <div className="audio-album-genre">
-                            <div className="text-center audio-album-genre-text">
-                              Genre Name
-                            </div>
+                            <div className="text-center audio-album-genre-text">Genre Name</div>
                           </div>
                         </div>
                       </div>
@@ -639,25 +542,15 @@ function AudioPageBody() {
                 <div className="audio-album-card-border">
                   <div className="audio-album-card">
                     <div className="d-flex justify-content-center">
-                      <img
-                        src="images/1.jpg"
-                        alt=""
-                        className="img-fluid audio-album-image"
-                      />
+                      <img src="images/1.jpg" alt="" className="img-fluid audio-album-image" />
                     </div>
                     <div className="audio-album-detail">
-                      <div className="text-center audio-album-text">
-                        Song Name - Album Name
-                      </div>
+                      <div className="text-center audio-album-text">Song Name - Album Name</div>
                       <div className="d-flex justify-content-center">
-                        <div className="text-center audio-album-text mr-3">
-                          Artists Name
-                        </div>
+                        <div className="text-center audio-album-text mr-3">Artists Name</div>
                         <div className="d-flex justify-content-center audio-album-genre-border">
                           <div className="audio-album-genre">
-                            <div className="text-center audio-album-genre-text">
-                              Genre Name
-                            </div>
+                            <div className="text-center audio-album-genre-text">Genre Name</div>
                           </div>
                         </div>
                       </div>
@@ -672,25 +565,15 @@ function AudioPageBody() {
                 <div className="audio-album-card-border">
                   <div className="audio-album-card">
                     <div className="d-flex justify-content-center">
-                      <img
-                        src="images/1.jpg"
-                        alt=""
-                        className="img-fluid audio-album-image"
-                      />
+                      <img src="images/1.jpg" alt="" className="img-fluid audio-album-image" />
                     </div>
                     <div className="audio-album-detail">
-                      <div className="text-center audio-album-text">
-                        Song Name - Album Name
-                      </div>
+                      <div className="text-center audio-album-text">Song Name - Album Name</div>
                       <div className="d-flex justify-content-center">
-                        <div className="text-center audio-album-text mr-3">
-                          Artists Name
-                        </div>
+                        <div className="text-center audio-album-text mr-3">Artists Name</div>
                         <div className="d-flex justify-content-center audio-album-genre-border">
                           <div className="audio-album-genre">
-                            <div className="text-center audio-album-genre-text">
-                              Genre Name
-                            </div>
+                            <div className="text-center audio-album-genre-text">Genre Name</div>
                           </div>
                         </div>
                       </div>
@@ -704,25 +587,15 @@ function AudioPageBody() {
                 <div className="audio-album-card-border">
                   <div className="audio-album-card">
                     <div className="d-flex justify-content-center">
-                      <img
-                        src="images/1.jpg"
-                        alt=""
-                        className="img-fluid audio-album-image"
-                      />
+                      <img src="images/1.jpg" alt="" className="img-fluid audio-album-image" />
                     </div>
                     <div className="audio-album-detail">
-                      <div className="text-center audio-album-text">
-                        Song Name - Album Name
-                      </div>
+                      <div className="text-center audio-album-text">Song Name - Album Name</div>
                       <div className="d-flex justify-content-center">
-                        <div className="text-center audio-album-text mr-3">
-                          Artists Name
-                        </div>
+                        <div className="text-center audio-album-text mr-3">Artists Name</div>
                         <div className="d-flex justify-content-center audio-album-genre-border">
                           <div className="audio-album-genre">
-                            <div className="text-center audio-album-genre-text">
-                              Genre Name
-                            </div>
+                            <div className="text-center audio-album-genre-text">Genre Name</div>
                           </div>
                         </div>
                       </div>
@@ -736,25 +609,15 @@ function AudioPageBody() {
                 <div className="audio-album-card-border">
                   <div className="audio-album-card">
                     <div className="d-flex justify-content-center">
-                      <img
-                        src="images/1.jpg"
-                        alt=""
-                        className="img-fluid audio-album-image"
-                      />
+                      <img src="images/1.jpg" alt="" className="img-fluid audio-album-image" />
                     </div>
                     <div className="audio-album-detail">
-                      <div className="text-center audio-album-text">
-                        Song Name - Album Name
-                      </div>
+                      <div className="text-center audio-album-text">Song Name - Album Name</div>
                       <div className="d-flex justify-content-center">
-                        <div className="text-center audio-album-text mr-3">
-                          Artists Name
-                        </div>
+                        <div className="text-center audio-album-text mr-3">Artists Name</div>
                         <div className="d-flex justify-content-center audio-album-genre-border">
                           <div className="audio-album-genre">
-                            <div className="text-center audio-album-genre-text">
-                              Genre Name
-                            </div>
+                            <div className="text-center audio-album-genre-text">Genre Name</div>
                           </div>
                         </div>
                       </div>

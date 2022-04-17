@@ -16,9 +16,9 @@ function App() {
       {/* <LandingPage /> */}
       {/* <LoginPage /> */}
       {/* <SignUpPage /> */}
-      {/* <AudioPage /> */}
+      <AudioPage />
       {/* <DashboardPage /> */}
-      <AdminUsersPage />
+      {/* <AdminUsersPage /> */}
     </body>
   );
 }
